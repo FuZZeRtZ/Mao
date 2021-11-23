@@ -8,6 +8,36 @@ switch(attack){
 		break;
 }
 
+//attack_update.gml
+if attack == AT_DSPECIAL { 
+	if (!instance_exists(obj_article1)){
+		 if window == 2 && window_timer == 1 && hitpause == false { // 'hitpause == false' prevents it from running multiple times if frozen in hitpause
+    starwalker = instance_create(x, y, "obj_article1") // Optionally save a reference to the instance in a variable.
+  }
+}
+
+    
+}
+ 
+//attack_update.gml
+//if an article doesn't exist yet, let the player create an article with dspecial.
+if (!instance_exists(my_player_article)) {
+if (attack == AT_DSPECIAL) my_player_article = starwalker;
+}
+//if an article exists, make the article move upwards with uspecial.
+else {
+if (attack == AT_USPECIAL) my_player_article.vsp = -5;
+}
+
+if (!instance_exists(my_player_article))
+{
+    if attack == AT_DSPECIAL{
+        if window == 2 && window_timer == 1 && hitpause == false {
+            instance_destroy(my_player_article);
+        }
+    }
+} 
+
 
 
 // per-attack logic
@@ -301,34 +331,6 @@ switch(attack){
 		}
 		can_fast_fall = false;
 		can_move = false;
-		break;
-	
-	
-	
-	case AT_TAUNT:
-		if window_timer == 1{
-			clear_button_buffer(PC_SHIELD_PRESSED);
-		}
-		if shield_pressed && window == 1 && window_timer < 16{
-			attack_end();
-			set_attack(AT_TAUNT_2);
-		}
-		break;
-	
-	
-	
-	case AT_TAUNT_2:
-		if !(shield_down || taunt_down){
-			attack_end();
-			set_state(PS_IDLE);
-		}
-		if window_timer == phone_window_end - 32{
-			spawn_hit_fx(x + 16 * spr_dir, y - 44, 113);
-			sound_play(asset_get("mfx_star"));
-		}
-		if window_timer == phone_window_end - 4{
-			spawn_hit_fx(x, y - 32, 143);
-		}
 		break;
 }
 

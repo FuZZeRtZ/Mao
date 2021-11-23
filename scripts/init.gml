@@ -1,22 +1,13 @@
 /*
  * The stats below are taken from Zetterburn, replacing Sandbert's overpowered
- * movement stats. The commented-out numbers are the range of values the RoA
- * base cast has - e.g. it lists the slowest and fastest run speeds.
- * 
- * Replace Zetter's stats with whatever strengths/weaknesses your char should
- * have, e.g. change dash_speed to 8 or so if you want a fast character.
- *
- * Explanation of each stat:
- * https://rivalsofaether.com/player-variables/
+ * movement stats. The ATTACKS are still in their overpowered form in this
+ * template, so be sure to make the ones for your character weaker.
  * 
  * Base Cast Frame Data:
  * docs.google.com/spreadsheets/d/19UtK7xG2c-ehxdlhCFKMpM4_IHSG-EXFgXLJaunE79I
- * 
- * Base Cast Stats:
- * docs.google.com/spreadsheets/d/14JIjL_5t81JHqnJmU6BSsRosTe2JO8sFGUysM_9tDoU
  */
 
-// STAT NAME		VALUE       BASECAST RANGE   NOTES
+// STAT NAME		ZETTER VALUE   BASECAST RANGE   NOTES
 
 // Physical size
 char_height         = 52;       //                  not zetterburn's. this is just cosmetic anyway
@@ -97,12 +88,19 @@ beam_newest_hbox = noone;
 
 
 
+//init.gml
+my_player_article = noone;
+
+
+
+
+
 // Animation Info
 
 // Misc. animation speeds
-idle_anim_speed     = 0.1;
+idle_anim_speed     = 0.2;
 crouch_anim_speed   = 0.1;
-walk_anim_speed     = 0.125;
+walk_anim_speed     = 0.2;
 dash_anim_speed     = 0.2;
 pratfall_anim_speed = 0.25;
 
@@ -139,8 +137,8 @@ roll_back_active_frames         = 4;
 roll_back_recovery_frames       = 2;
 
 // Crouch
-crouch_startup_frames   = 2;
-crouch_active_frames    = 1;
+crouch_startup_frames   = 4;
+crouch_active_frames    = 4;
 crouch_recovery_frames  = 2;
 
 /*

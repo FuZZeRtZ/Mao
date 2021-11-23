@@ -84,12 +84,10 @@ phone.supports_fast_graphics = false;
 // Set to true and the phone will NOT activate Fast Fraphics when FPS gets low.
 phone.dont_fast = false;
 
-// Set to true and this will DISABLE a lot of the phone's side features, mostly
-// the coding shortcuts.
-// See _docs.gml for a full list of what it disables.
-// If you don't intend to use any of those bonus features in your character,
-// you should set this to true since it saves a bit of performance.
-// (it's false by default since Phone Sandbert uses some of those features)
+// Set to true and this will DISABLE a lot of the phone's side utilities.
+// If you're porting the phone to an existing char and don't need any of these
+// features, you might as well turn on lightweight to save a tiny bit of
+// performance. (see _docs.gml for a full list of what this disables)
 phone.lightweight = false;
 
 // If you've created custom AG_ or HG_ indexes for your character already,
@@ -247,50 +245,6 @@ in a Patch.
 */
 
 #define CORE_patches
-
-initPatch("1.5", "20 November, 2021");
-initHeader("MunoPhone Touch Firmware v5");
-initSection("Added a new utility var: phone_game_over, which is true when the game has ended and is in the slow-mo at the end.
-Removed the unused attack grid index AG_MUNO_ATTACK_REFRESH.");
-initHeader("Misc.");
-initSection("Removed some confusing notes from the attack code files.");
-
-initPatch("1.4", "03 October, 2021");
-initHeader("NAir - Adjustments, Aesthetics");
-initSection("Sped up the move's multi-hits.
-Moved the hitboxes downward.
-Adjusted sprite.");
-initHeader("Taunt - Additions");
-initSection("Added a secret taunt.");
-initHeader("MunoPhone Touch Firmware v4");
-initSection("CSS alt display with >16 alts now uses thinner rectangles instead of two pages.
-Adjusted the position of CSS alt names when playing online.
-Fixed a bug where the Freeze Own Damage Utility was dependent on the character supporting Fast Graphics.
-Fixed a bug where the frame data for parent hitboxes was formatted incorrectly.");
-
-initPatch("1.3", "30 September, 2021");
-initHeader("DStrong - Nerfs, Adjustments, Aesthetics");
-initSection("Reduced hitbox size and adjusted position.
-Hitbox lifetime 5 --> 3.
-Adjusted sprite.");
-initHeader("DAttack - Nerfs, Aesthetics");
-initSection("Endlag 10 --> 12.
-Adjusted sprite.");
-initHeader("MunoPhone Touch Firmware v3");
-initSection("Added the Spam Attack Utility.
-The options for Cheats / Utilities will now split into up to four columns for long lists, so the maximum is 40 items.
-The jump button now scrolls backwards through a Cheat / Utility's options.
-Made the Endless Parry Utility only work if the CPU action is set to Parry.
-Fixed the Ranno and Maypul functionality in the CPU Behavior Changes Utility.");
-
-initPatch("1.2", "22 September, 2021");
-initHeader("MunoPhone Touch Firmware v2");
-initSection("Added the Endless Parry Utility.");
-
-initPatch("1.1", "20 September, 2021");
-initHeader("DStrong - Adjustments, Bugfixes");
-initSection("Angle 290 --> 280.
-Fixed hurtbox.");
 
 initPatch("1.0", "19 September, 2021");
 initWords_ext("(Changes from Vanilla Sandbert)", fa_center, c_white, 0, false);
@@ -663,7 +617,7 @@ Spear IDs:
 */
 
 // Palutena's Guidance (for RuberCuber's Pit character)
-// Works kind of similarly to Trummel codecs.
+// Works kind of similarly to MunoPhone.
 // initCodecPagePit(speaker, expression, voice, text);
 // List of expressions and voice clips: https://pastebin.com/wsz22ZwJ
 
